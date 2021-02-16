@@ -9,7 +9,7 @@ import Foundation
 
 open class RDError: Error {
 
-    public let title: String?
+    public let message: String?
     public let cause: Error?
 
     public let file: StaticString
@@ -17,12 +17,12 @@ open class RDError: Error {
 
     public let callstack: [String]
 
-    public init(_ title: String?,
-                _ cause: Error,
+    public init(_ message: String? = nil,
+                _ cause: Error? = nil,
                 file: StaticString = #filePath,
                 line: UInt = #line) {
 
-        self.title = title
+        self.message = message
         self.cause = cause
         self.file = file
         self.line = line
