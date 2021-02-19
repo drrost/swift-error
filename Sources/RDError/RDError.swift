@@ -10,6 +10,7 @@ import Foundation
 open class RDError: NSObject, LocalizedError {
 
     public let message: String
+    public let detailedMessage: String
     public let cause: Error?
 
     public let file: StaticString
@@ -18,11 +19,13 @@ open class RDError: NSObject, LocalizedError {
     public let callstack: [String]
 
     public init(_ message: String = "",
+                detailed: String = "",
                 _ cause: Error? = nil,
                 file: StaticString = #filePath,
                 line: UInt = #line) {
 
         self.message = message
+        self.detailedMessage = detailed
         self.cause = cause
         self.file = file
         self.line = line
