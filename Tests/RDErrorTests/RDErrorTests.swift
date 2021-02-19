@@ -45,5 +45,18 @@ class RDErrorTests: XCTestCase {
         XCTAssertEqual(error.message, message)
         XCTAssertEqual((error.cause as! RDError).message, "cause")
     }
+
+    func testThrowAsError_DescriptionIsMessage() {
+        // Given
+        let message = UUID().uuidString
+
+        // When
+        do {
+            throw RDError(message)
+        } catch {
+            // Then
+            XCTAssertEqual(message, error.localizedDescription)
+        }
+    }
 }
 

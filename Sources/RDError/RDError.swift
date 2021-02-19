@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class RDError: Error {
+open class RDError: NSObject, LocalizedError {
 
     public let message: String
     public let cause: Error?
@@ -29,4 +29,9 @@ open class RDError: Error {
 
         callstack = Thread.callStackSymbols
     }
+
+    // Error methods
+    //
+    public override var description: String { get { message } }
+    public var errorDescription: String? { get { description } }
 }
