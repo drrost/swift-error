@@ -58,18 +58,5 @@ class RDErrorTests: XCTestCase {
             XCTAssertEqual(message, error.localizedDescription)
         }
     }
-
-    func testCreationWithDetailedMessage() {
-        // Given
-        let message = UUID().uuidString
-        let detailedMessage = UUID().uuidString
-
-        // When
-        let error = RDError(message, detailed: detailedMessage)
-
-        // Then
-        XCTAssertEqual(message, error.message)
-        XCTAssertEqual(detailedMessage, error.detailedMessage)
-    }
 }
 
